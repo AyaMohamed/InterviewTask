@@ -78,11 +78,6 @@ public class TestClass {
     @DisplayName("check status code when calling GetMerchantAPI without token")
     public void checkStatusCodeWhenNoTokenUsed() {
         //1. validate that status code is 401, when token is not sent
-        given(requestSpec).header("User-Agent","PostmanRuntime/7.29.2").header("Accept","*/*")
-                .header("Accept-Encoding","gzip, deflate, br")
-                .header("Connection","keep-alive").when().get("GetMerchantInfo").then()
-                .assertThat().statusCode(401);
-
         MerchantInfoResponseClass merchantInfoResponse=given(requestSpec).header("User-Agent","PostmanRuntime/7.29.2").header("Accept","*/*")
                 .header("Accept-Encoding","gzip, deflate, br")
                 .header("Connection","keep-alive").when().get("GetMerchantInfo").as(MerchantInfoResponseClass.class);
